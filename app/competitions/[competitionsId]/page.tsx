@@ -1,7 +1,6 @@
 import React from "react";
 import competitions from "./competitions.js";
 import Button from "@/app/components/Button.tsx";
-import Link from "next/link.js";
 
 export default async function page({params}: {params: any}) {
   const {competitionsId} = await params;
