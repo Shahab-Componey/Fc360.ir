@@ -21,7 +21,12 @@ function reSize(func: any) {
 
 function Main() {
   const [picCount, setCount] = useState();
-  const images = [image1, image2, image3, image4];
+  const images = [
+    {id: 1, src: image1},
+    {id: 2, src: image2},
+    {id: 3, src: image3},
+    {id: 4, src: image4},
+  ];
   useGSAP(() => {
     gsap.fromTo(".main", {opacity: 0}, {opacity: 1, duration: 1});
   });
@@ -48,9 +53,9 @@ function Main() {
           className="mySwiper h-full "
         >
           {images.map((image) => (
-            <SwiperSlide>
+            <SwiperSlide key={image.id}>
               <Image
-                src={image}
+                src={image.src}
                 className="object-cover"
                 loading="lazy"
                 alt=""
