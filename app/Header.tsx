@@ -5,8 +5,9 @@ import {createContext, useContext, useEffect, useRef, useState} from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
+import { useGSAP } from "@gsap/react";
 
-const NavBarContext = createContext(null);
+const NavBarContext = createContext<any>(null);
 
 function Header() {
   return (
@@ -33,7 +34,7 @@ function Header() {
 
 function NavBar(props: any) {
   const [menuActivtiy, setMenuActivty] = useState(true);
-  const mobileMenuEl = useRef(null);
+  const mobileMenuEl = useRef<HTMLDivElement>(null);
   const mobileMenuBtn = useRef(null);
   const mobileMenuHeigth = mobileMenuEl.current?.scrollHeight;
   const [mobileMenu, setMenu] = useState(false);
@@ -82,7 +83,7 @@ function NavBar(props: any) {
   );
 }
 
-function MobileMenu({mobileMenuEl}) {
+function MobileMenu({mobileMenuEl}: any) {
   const {menuActivtiy, setMenuActivty} = useContext(NavBarContext);
   useGSAP(() => {
     gsap
@@ -99,7 +100,7 @@ function MobileMenu({mobileMenuEl}) {
   );
 }
 
-function NavLinks({direction, hoverColor = "text-white"}) {
+function NavLinks({direction = "", hoverColor = "text-white"}) {
   return (
     <ul
       className={`flex ${direction} md:my-1  gap-NavBar text-Regular text-nowrap text-center h-full items-center md:gap-5 xs:gap-3 `}
@@ -115,7 +116,7 @@ function NavLinks({direction, hoverColor = "text-white"}) {
   );
 }
 
-function NavLink({children, to}) {
+function NavLink({children, to}: any) {
   return (
     <li className={`transition-all  hover:text-white xs:hover:text-black`}>
       <Link href={to}>{children}</Link>

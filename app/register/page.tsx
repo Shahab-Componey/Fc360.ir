@@ -29,9 +29,6 @@ function Form() {
       src="https://docs.google.com/forms/d/e/1FAIpQLSevHOO9Ka0keEYA-SexTdGwz62cUJLdCi0dtkrfA-20Dj2rag/viewform?embedded=true"
       width="700"
       height="520"
-      frameborder="0"
-      marginheight="0"
-      marginwidth="0"
     ></iframe>
   );
 }
@@ -128,11 +125,11 @@ function Modal() {
   );
 }
 
-function removeModalBtn(func, elment, refrence) {
+function removeModalBtn(func: Function, elment: any, refrence: any) {
   elment.target === refrence.current && removeModal(func);
 }
 
-function removeModal(func) {
+function removeModal(func: any) {
   document.body.classList.add("pointer-events-none");
   gsap.fromTo(".modal", {opacity: 0.8}, {opacity: 0, duration: 1});
   gsap

@@ -40,7 +40,6 @@ function Main() {
           modules={[Autoplay]}
           loop={true}
           freeMode={true}
-          minimumVelocity={0.2}
           autoplay={{
             delay: 3500,
           }}
