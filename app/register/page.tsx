@@ -3,7 +3,7 @@ import {createContext, useContext, useEffect, useRef, useState} from "react";
 import gsap from "gsap";
 import Button from "../components/Button";
 import {useGSAP} from "@gsap/react";
-const UserContext = createContext();
+const UserContext = createContext({});
 
 function Register() {
   useGSAP(() => {
@@ -37,8 +37,8 @@ function Form() {
 }
 
 function Argument() {
-  const {modal, setModal} = useContext(UserContext);
-  const {setForm} = useContext(UserContext);
+  const {modal, setModal}: any = useContext(UserContext);
+  const {setForm}: any = useContext(UserContext);
 
   return (
     <div className="z-10">
@@ -61,8 +61,8 @@ function Argument() {
 }
 
 function Modal() {
-  const {modal, setModal} = useContext(UserContext);
-  const rulesEl = useRef();
+  const {setModal}: any = useContext(UserContext);
+  const rulesEl = useRef(null);
   useEffect(() => {
     window.addEventListener("click", (v) => {
       removeModalBtn(setModal, v, rulesEl);
