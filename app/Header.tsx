@@ -5,7 +5,7 @@ import {createContext, useContext, useEffect, useRef, useState} from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
-import { useGSAP } from "@gsap/react";
+import {useGSAP} from "@gsap/react";
 
 const NavBarContext = createContext<any>(null);
 
@@ -107,11 +107,9 @@ function NavLinks({direction = "", hoverColor = "text-white"}) {
       dir="rtl"
     >
       <NavLink to="/">خانه</NavLink>
-      <NavLink to="/register">ثبت نام</NavLink>
-      <NavLink to="/about">درباره با ما</NavLink>
       <NavLink to="/competitions">مسابقات</NavLink>
-      <NavLink to="/news">خبر ها</NavLink>
-      <NavLink to="/">گالری</NavLink>
+      <NavLink to="/register">ثبت نام در باشگاه</NavLink>
+      <NavLink to="/about">درباره با ما</NavLink>
     </ul>
   );
 }

@@ -6,18 +6,37 @@ export default async function page({params}: {params: any}) {
   const {competitionsId} = await params;
   const competition = competitions.find((v) => v.id == competitionsId);
   return (
-    <div className="text-Regular flex-col flex h-full w-full justify-center items-center">
-      <div>
-        <Button>بازگشت</Button>
-      </div>
-      <div className="flex justify-center items-center flex-col">
-        <div>{competition?.id}</div>
-        <div>{competition?.title}</div>
-        <div>{competition?.teaser}</div>
-        <div>{competition?.descrption}</div>
-        <div>{competition?.rules}</div>
-        <div>{competition?.docsLink}</div>
-      </div>
+    <div className="flex flex-col h-full text-white text-Regular mx-auto flex-1">
+      <div className=""></div>
+      {/* <div className="flex flex-col items-center justify-center my-5"> */}
+      {/* <div className="flex flex-col items-center justify-center w-full h-full gap-5"> */}
+      {/* <iframe
+        className="flex w-1/2 h-auto "
+        src={`${competition?.teaser}`}
+        allowFullScreen="true"
+        webkitallowfullscreen="true"
+        mozallowfullscreen="true"
+      ></iframe> */}
+      {/* <div className="text-4xl ">{competition?.title}</div>
+          <p dir="rtl" className="w-1/2 text-lg text-center">
+            {competition?.descrption}
+          </p>
+        </div>
+      </div> */}
+      <Form></Form>
     </div>
+  );
+}
+
+function Form() {
+  return (
+    <iframe
+      className="mx-auto bg-[#ffffff] rounded-xl w-full text-white"
+      src="https://docs.google.com/forms/d/e/1FAIpQLSfvbrfPHSBD6EAYfb1PqGR4lhmGMhd1rQ6T0atKzWxnneXHcw/viewform?embedded=true"
+      width="700"
+      height="520"
+    >
+      درحال بار کردن…
+    </iframe>
   );
 }

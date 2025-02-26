@@ -13,7 +13,7 @@ function Register() {
   const [modal, setModal] = useState();
 
   return (
-    <div className="flex h-full items-center justify-center flex-1 w-full py-12 form">
+    <div className="flex h-full items-center justify-center flex-1 w-full form">
       <UserContext.Provider value={{modal, setModal, form, setForm}}>
         {!form && <Argument></Argument>}
         {form && <Form></Form>}
@@ -25,11 +25,11 @@ function Register() {
 function Form() {
   return (
     <iframe
-      className="bg-[#ffffff] rounded-xl"
+      className="bg-[#ffffff] rounded-xl  text-white"
       src="https://docs.google.com/forms/d/e/1FAIpQLSevHOO9Ka0keEYA-SexTdGwz62cUJLdCi0dtkrfA-20Dj2rag/viewform?embedded=true"
       width="700"
       height="520"
-    ></iframe>
+    >در حال باز کردن</iframe>
   );
 }
 
@@ -38,7 +38,7 @@ function Argument() {
   const {setForm}: any = useContext(UserContext);
 
   return (
-    <div className="z-10">
+    <div className="z-10 text-center">
       <div className="flex flex-col gap-5 text-Regular">
         <p>
           &nbsp; آیا با تمامی &nbsp;
