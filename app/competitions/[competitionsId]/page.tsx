@@ -6,7 +6,7 @@ export default async function page({params}: {params: any}) {
   const {competitionsId} = await params;
   const competition = competitions.find((v) => v.id == competitionsId);
   return (
-    <div className="flex flex-col h-full text-white text-Regular mx-auto flex-1">
+    <div className="flex flex-col w-1/2 h-full text-white text-Regular mx-auto flex-1">
       <div className=""></div>
       {/* <div className="flex flex-col items-center justify-center my-5"> */}
       {/* <div className="flex flex-col items-center justify-center w-full h-full gap-5"> */}
@@ -31,7 +31,7 @@ export default async function page({params}: {params: any}) {
 function Form() {
   return (
     <iframe
-      className="mx-auto bg-[#ffffff] rounded-xl w-full text-white"
+      className="mx-auto my-auto bg-[#ffffff] rounded-xl w-full text-white"
       src="https://docs.google.com/forms/d/e/1FAIpQLSfvbrfPHSBD6EAYfb1PqGR4lhmGMhd1rQ6T0atKzWxnneXHcw/viewform?embedded=true"
       width="700"
       height="520"
