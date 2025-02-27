@@ -16,7 +16,7 @@ export default function page({params}: {params: any}) {
     return null;
   }
   return (
-    <div className=" flex flex-col text-center h-full text-white w-full overflow-x-hidden  overflow-y-auto ">
+    <div className="flex text-center h-full text-white  overflow-y-auto overflow-x-hidden ">
       {!form ? (
         <div className="flex flex-1 flex-col w-full  items-center justify-center px-5  my-auto  md:mx-0 ">
           <div>
@@ -85,7 +85,7 @@ export default function page({params}: {params: any}) {
 function Form({docsLink}: any) {
   return (
     <iframe
-      className="my-auto mx-auto  bg-[#ffffff] rounded-xl  text-white"
+      className="my-auto mx-auto  bg-[#ffffff] rounded-xl  text-white "
       src={`${docsLink}`}
       width="700"
       height="520"
