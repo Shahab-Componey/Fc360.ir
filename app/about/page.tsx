@@ -9,7 +9,7 @@ function about() {
     gsap.fromTo(".main", {opacity: 0}, {opacity: 1, duration: 1});
   });
   return (
-    <div className="main flex h-full flex-1 gap-5 py-12 mx-5 about xs:flex-col text-Regular">
+    <div className="main flex h-full flex-1 gap-5 py-12 mx-5 about xs:flex-col text-Regular overflow-y-auto px-5">
       <div className="w-1/4 h-full xs:w-full">
         <Image
           loading="lazy"

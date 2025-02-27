@@ -3,8 +3,8 @@ import brandLogo from "../public/images/footer/BrandLogo.png";
 import brandLogo2 from "../public/images/footer/BrandLogo2.png";
 import brandLogo3 from "../public/images/footer/BrandLogo3.png";
 import brandLogo4 from "../public/images/footer/BrandLogo4.png";
-import image1 from "../public/images/footer/Telegram.png";
-import image2 from "../public/images/footer/Twiiter.png";
+import apparatLogo from "../public/images/footer/Apparat.png";
+import youtubeLogo from "../public/images/footer/Youtube.png";
 import image3 from "../public/images/footer/Instagram.png";
 import Image from "next/image";
 
@@ -19,24 +19,29 @@ function Footer() {
           <Image className="md:size-12" src={brandLogo2} alt="" />
         </div>
         <div className="self-center text-Regular md:text-center"></div>
-        
       </div>
 
       <div className="flex items-center justify-center gap-3 ">
-        <SocialLink src={image1}></SocialLink>
-        <SocialLink src={image2}></SocialLink>
-        <SocialLink src={image3}></SocialLink>
+        <SocialLink
+          href={"https://www.aparat.com/fc360"}
+          src={apparatLogo}
+        ></SocialLink>
+        <SocialLink
+          href={"https://www.youtube.com/@fc360club"}
+          src={youtubeLogo}
+        ></SocialLink>
+        <SocialLink href={""} src={image3}></SocialLink>
       </div>
     </div>
   );
 }
 
-function SocialLink({src}: any) {
+function SocialLink({src, href}: any) {
   return (
     <div
       className={`transition-all cursor-pointer size-12 hover:scale-110 md:size-8 `}
     >
-      <a href="/">
+      <a href={href} target="blank">
         {" "}
         <Image src={src} alt="" />
       </a>

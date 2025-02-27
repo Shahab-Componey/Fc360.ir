@@ -13,7 +13,7 @@ function Register() {
   const [modal, setModal] = useState();
 
   return (
-    <div className="flex h-full items-center justify-center flex-1 w-full form">
+    <div className="flex h-full items-center justify-center flex-1 w-full overflow-auto form">
       <UserContext.Provider value={{modal, setModal, form, setForm}}>
         {!form && <Argument></Argument>}
         {form && <Form></Form>}

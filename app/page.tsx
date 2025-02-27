@@ -56,7 +56,7 @@ function Main() {
             <SwiperSlide key={image.id}>
               <Image
                 src={image.src}
-                className="object-cover"
+                className="object-cover rounded-xl"
                 loading="lazy"
                 alt=""
               />

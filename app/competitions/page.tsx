@@ -13,10 +13,9 @@ export default function competitions() {
   });
 
   const registerColers: any = {
-    "true": "text-green-400",
-    "false": "text-red-700",
+    true: "text-green-400",
+    false: "text-red-700",
   };
-  data.forEach((v) => console.log(v.banner));
   const competitions = data.map((v) => (
     <div
       className="flex  flex-col border border-white rounded-xl p-5 items-center "
@@ -51,7 +50,7 @@ export default function competitions() {
     </div>
   ));
   return (
-    <div className="main text-Regular w-full flex h-full items-center  flex-1 flex-col gap-5 md:overflow-y-auto">
+    <div className="main text-Regular w-full flex h-full items-center  flex-1 flex-col gap-5 overflow-y-auto">
       <div>مسابقات پیش رو </div>
       {competitions}
     </div>

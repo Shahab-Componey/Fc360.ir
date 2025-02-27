@@ -5,6 +5,7 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
+        "4xl": {max: "2040px"},
         "2xl": {max: "1500px"},
         xl: {max: "1200px"},
         lg: {max: "979px"},
