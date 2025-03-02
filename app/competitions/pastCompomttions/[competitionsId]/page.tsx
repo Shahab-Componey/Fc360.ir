@@ -1,6 +1,6 @@
 "use client";
 import React, {useState} from "react";
-import competitions from "./competitions.js";
+import competitions from "./pastCompomttions.js";
 import Button from "@/app/components/Button.tsx";
 import {useRouter} from "next/navigation";
 import Image from "next/image.js";
@@ -8,15 +8,16 @@ import aparatLogo from "@/public/images/competitions/Aparat.png";
 
 export default function page({params}: {params: any}) {
   const {competitionsId}: any = React.use(params);
+  console.log(competitionsId);
   const competition = competitions.find((v) => v.id == competitionsId);
   const router = useRouter();
   const [form, setForm] = useState(false);
-  if (!competition?.register) {
+  if (!competition?.active) {
     router.push("/competitions");
     return null;
   }
   return (
-    <div className="flex text-center h-full text-white  overflow-y-auto overflow-x-hidden ">
+    <div className="flex 1 text-center h-full text-white  overflow-y-auto overflow-x-hidden">
       {!form ? (
         <div className="flex flex-1 flex-col w-full  items-center justify-center px-5  my-auto  md:mx-0 ">
           <div>
@@ -29,12 +30,15 @@ export default function page({params}: {params: any}) {
                 ></Image>
 
                 <div className="flex flex-col text-center gap-5">
-                  <div className="text-4xl ">{competition?.title}</div>
+                  <div className="flex flex-col gap-2>">
+                    <div className="text-4xl ">{`${competition?.title}`}</div>
+                    <div className="text-2xl text-gray-400">به اتمام رسیده</div>
+                  </div>
                   <Button
                     className="w-32 h-8   text-xl"
                     event={() => setForm(true)}
                   >
-                    ثبت نام
+                    فرم نظرسنجی
                   </Button>
                   <div className="mx-auto">
                     <a href={competition.teaser} target="blank" className="">
@@ -55,7 +59,7 @@ export default function page({params}: {params: any}) {
                 <div className="flex mx-auto ">
                   <div className="flex flex-col border rounded-xl p-5 ">
                     <p dir="rtl" className=" text-lg ">
-                      زمان برگزاری : {competition?.time}
+                      برگزار شده در تاریخ : {competition?.time}
                     </p>
                     <p dir="rtl" className=" text-lg ">
                       محل برگزاری : {competition?.location}

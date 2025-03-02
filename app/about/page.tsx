@@ -18,20 +18,22 @@ function about() {
           alt=""
         />
       </div>
-      <div className="flex flex-1 h-full px-12 text-center text-Font ">
-        <div className="text-center my-auto">
-          <h1 className="text-4xl">درباره ما</h1>
+      <div className="flex flex-1 h-full px-12  text-Font xs:text-center ">
+        <div className=" my-auto">
+          <h1 className="text-4xl text-center">درباره ما</h1>
           <br />
-          <p className="text-lg" dir="rtl">
+          <div className="text-lg" dir="rtl">
             در دنیایی که هر لحظه، میدان نبردی برای برتری است، تنها یک باشگاه
             وجود دارد که می‌تواند مهارت‌های شما را به سطح بعدی برساند. با افتخار
             تقدیم می‌کنیم , باشگاه شمشیر بازی 360 درجه جایی که شمشیربازی از
-            مهارت به هنر تبدیل می‌شود. هر ضربه، هر حرکت، و هر لحظه‌ تجلی‌گاهی
-            از تعهد و تخصص ماست. بپیوندید به ما، جایی که قهرمانان شکل می‌گیرند و
+            مهارت به هنر تبدیل می‌شود. هر ضربه، هر حرکت، و هر لحظه‌ تجلی‌گاهی از
+            تعهد و تخصص ماست. بپیوندید به ما، جایی که قهرمانان شکل می‌گیرند و
             افسانه‌ها زاده می‌شوند
             <br />
-            <span className="text-2xl">اینجا، هر ضربه، یک داستان است</span>.
-          </p>
+            <div className="text-2xl text-center w-full">
+              اینجا، هر ضربه، یک داستان است
+            </div>
+          </div>
         </div>
       </div>
     </div>

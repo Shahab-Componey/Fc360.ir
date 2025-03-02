@@ -34,6 +34,6 @@
     "app/components/Button.tsx",
     "app/news/[slug]/[proudctId]/page.js",
     "app/news/[slug]/[id]/page.js"
-  ],
+, "app/competitions/pastCompomttions/[competitionsId]/pastCompomttions.js", "middleware.ts", "app/404.tjs"  ],
   "exclude": ["node_modules"]
 }
