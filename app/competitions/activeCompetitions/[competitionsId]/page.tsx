@@ -16,7 +16,7 @@ export default function page({params}: {params: any}) {
     return null;
   }
   return (
-    <div className="flex 1 text-center h-full text-white  overflow-y-auto overflow-x-hidden ">
+    <div className="flex 1 text-center h-full text-white   overflow-y-auto overflow-x-hidden ">
       {!form ? (
         <div className="flex flex-1 flex-col w-full  items-center justify-center px-5  my-auto  md:mx-0 ">
           <div>

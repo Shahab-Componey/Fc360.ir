@@ -8,7 +8,6 @@ import aparatLogo from "@/public/images/competitions/Aparat.png";
 
 export default function page({params}: {params: any}) {
   const {competitionsId}: any = React.use(params);
-  console.log(competitionsId);
   const competition = competitions.find((v) => v.id == competitionsId);
   const router = useRouter();
   const [form, setForm] = useState(false);

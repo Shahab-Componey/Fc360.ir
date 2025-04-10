@@ -1,7 +1,7 @@
 "use client";
 import activeData from "./activeCompetitions/[competitionsId]/activeCompetitions.js";
 import pastData from "./pastCompomttions/[competitionsId]/pastCompomttions.js";
-import React, {useEffect, useState} from "react";
+import React, {useCallback, useEffect, useMemo, useState} from "react";
 import Button from "../components/Button";
 import Link from "next/link";
 import {useGSAP} from "@gsap/react";
@@ -25,16 +25,16 @@ export default function page({params}: {params: any}) {
     <ActiveCompetitions key={v.id} data={v}></ActiveCompetitions>
   ));
 
-  const pastCompetitions = pastData.map((v) => (
+  const pastCompomttions = pastData.map((v) => (
     <PastCompomttions key={v.id} data={v}></PastCompomttions>
   ));
 
   const [tab, setTab] = useState<React.ReactNode>();
 
   useEffect(() => {
-    if (pathname.endsWith("/pastCompetitions")) {
-      setTab(pastCompetitions);
-      setActiveTab("pastCompetitions");
+    if (pathname.endsWith("/pastCompomttions")) {
+      setTab(pastCompomttions);
+      setActiveTab("pastCompomttions");
     } else if (
       pathname.endsWith("/activeCompetitions") ||
       pathname.endsWith("/competitions")
@@ -49,11 +49,11 @@ export default function page({params}: {params: any}) {
       <div className="flex gap-5 flex-wrap items-center justify-center">
         <div
           className={`underline cursor-pointer ${
-            activeTab === "pastCompetitions" ? "text-white" : "text-Regular"
+            activeTab === "pastCompomttions" ? "text-white" : "text-Regular"
           }`}
           onClick={() => {
-            setTab(pastCompetitions);
-            setActiveTab("pastCompetitions");
+            setTab(pastCompomttions);
+            setActiveTab("pastCompomttions");
           }}
         >
           مسابقات گذشته{" "}
