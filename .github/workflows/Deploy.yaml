@@ -1,4 +1,4 @@
-name: Deploy Next.js Shahab Site to VPS
+name: Deploy Next.js fc360 Site to VPS
 
 on:
   push:
@@ -38,5 +38,5 @@ jobs:
             cd /var/www/shahab/fc360.ir
             npm install
             npm run build
-            pm2 restart shahab-site || pm2 start npm --name "fc360" -- start
+            pm2 restart fc360.ir || pm2 start npm --name "fc360" -- start
           EOF
