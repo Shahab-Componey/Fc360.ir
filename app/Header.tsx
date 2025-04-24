@@ -14,7 +14,7 @@ function Header() {
     <header className="p-5 header h-Header bg-Header rounded-b-Header xs:h-max">
       <div className="flex items-center justify-center gap-3">
         <div className="w-360logoWeight xs:w-32">
-          <Image className="object-cover" src={logo} alt="" />
+          <Image className="object-cover" src={logo} alt="" priority />
         </div>
 
         <div className="relative w-full h-[0.29rem] bg-white top-[0.38rem] xs:hidden">

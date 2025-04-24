@@ -94,12 +94,16 @@ const PastCompomttions = ({data}: any) => {
     <div className="flex  flex-col border border-white rounded-xl p-5 items-center ">
       <div className="flex items-center flex-col gap-3">
         <div className="w-full h-24">
-          <Image
-            className="rounded-xl object-cover w-96 "
-            src={data.banner}
-            alt=""
-            loading="lazy"
-          ></Image>{" "}
+          {data?.banner ? (
+            <Image
+              className="rounded-xl object-cover w-96 "
+              src={data.banner}
+              alt=""
+              loading="lazy"
+            ></Image>
+          ) : (
+            <div></div>
+          )}
         </div>
         <div className="flex flex-col items-center gap-2">
           <div className={`text-gray-400`}>به اتمام رسیده</div>
@@ -125,12 +129,16 @@ const ActiveCompetitions = ({data}: any) => {
     <div className="flex  flex-col border border-white rounded-xl p-5 items-center ">
       <div className="flex items-center flex-col gap-3">
         <div className="w-full h-24">
-          <Image
-            className="rounded-xl object-cover w-96 "
-            src={data.banner}
-            alt=""
-            loading="lazy"
-          ></Image>{" "}
+          {data?.banner ? (
+            <Image
+              className="rounded-xl object-cover w-96 "
+              src={data.banner}
+              alt=""
+              loading="lazy"
+            ></Image>
+          ) : (
+            <div></div>
+          )}
         </div>
         <div className="flex flex-col items-center gap-2">
           <div className={`${registerColers[`${data?.active}`]}`}>
