@@ -28,6 +28,19 @@ const competitions = [
     docsLink:
       "https://docs.google.com/forms/d/e/1FAIpQLSf746oMvvx5uJZPd38N-FaojVVyQAlE36s_-2h27nKeQriaXw/viewform?usp=sharing",
   },
+  {
+    id: "1",
+    title: "مسابقات سابر آقایان - جام رمضان",
+    banner: jamRamezanCroped,
+    active: true,
+    time: "دهم اسفند ساعت ۱۰ صبح",
+    location: "آبادان - باوارده جنوبی - سالن کوثر - سالن شمشیر بازی آبادان",
+    teaser: "",
+    descrption:
+      "جام رمضان یک مسابقه است که با همکاری هیات شمشیر بازی استان خوزستان و هیات شمشیر بازی منطقه آزاد اروند با میزبانی هیات شمشیربازی آبادان برگزار شد .",
+    docsLink:
+      "https://docs.google.com/forms/d/e/1FAIpQLSf746oMvvx5uJZPd38N-FaojVVyQAlE36s_-2h27nKeQriaXw/viewform?usp=sharing",
+  },
 ];
 
 export default competitions;
