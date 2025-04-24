@@ -38,5 +38,6 @@ jobs:
             cd /var/www/shahab/fc360.ir
             npm install
             npm run build
+            next build
             pm2 restart fc360.ir || pm2 start npm --name "fc360" -- start
           EOF
