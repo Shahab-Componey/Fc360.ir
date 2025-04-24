@@ -20,16 +20,23 @@ export default function page({params}: {params: any}) {
   const pathname = usePathname();
 
   const [activeTab, setActiveTab] = useState<String>("");
-
-  const activeCompetitions = activeData.map((v) => (
-    <ActiveCompetitions key={v.id} data={v}></ActiveCompetitions>
-  ));
-
-  const pastCompomttions = pastData.map((v) => (
-    <PastCompomttions key={v.id} data={v}></PastCompomttions>
-  ));
-
   const [tab, setTab] = useState<React.ReactNode>();
+
+  const activeCompetitions = useMemo(
+    () =>
+      activeData.map((v) => (
+        <ActiveCompetitions key={v.id} data={v}></ActiveCompetitions>
+      )),
+    [activeData]
+  );
+
+  const pastCompomttions = useMemo(
+    () =>
+      pastData.map((v) => (
+        <PastCompomttions key={v.id} data={v}></PastCompomttions>
+      )),
+    [pastData]
+  );
 
   useEffect(() => {
     if (pathname.endsWith("/pastCompomttions")) {
@@ -42,7 +49,20 @@ export default function page({params}: {params: any}) {
       setTab(activeCompetitions);
       setActiveTab("activeCompetitions");
     }
-  }, [pathname]);
+  }, [pathname, activeCompetitions, pastCompomttions]);
+
+  const handleTabChange = useCallback(
+    (tabName: string) => {
+      if (tabName === "pastCompomttions") {
+        setTab(pastCompomttions);
+        setActiveTab("pastCompomttions");
+      } else if (tabName === "activeCompetitions") {
+        setTab(activeCompetitions);
+        setActiveTab("activeCompetitions");
+      }
+    },
+    [activeCompetitions, pastCompomttions]
+  );
 
   return (
     <div className="main text-Regular w-full flex h-full items-center  flex-1 flex-col gap-5 overflow-y-auto text-nowrap px-3">
@@ -51,10 +71,7 @@ export default function page({params}: {params: any}) {
           className={`underline cursor-pointer ${
             activeTab === "pastCompomttions" ? "text-white" : "text-Regular"
           }`}
-          onClick={() => {
-            setTab(pastCompomttions);
-            setActiveTab("pastCompomttions");
-          }}
+          onClick={() => handleTabChange("pastCompomttions")}
         >
           مسابقات گذشته{" "}
         </div>
@@ -62,10 +79,7 @@ export default function page({params}: {params: any}) {
           className={`underline cursor-pointer ${
             activeTab === "activeCompetitions" ? "text-white" : "text-Regular"
           }`}
-          onClick={() => {
-            setTab(activeCompetitions);
-            setActiveTab("activeCompetitions");
-          }}
+          onClick={() => handleTabChange("activeCompetitions")}
         >
           مسابقات پیش رو{" "}
         </div>
@@ -75,40 +89,38 @@ export default function page({params}: {params: any}) {
   );
 }
 
-const PastCompomttions = React.memo(({data}: any) => {
-  {
-    return (
-      <div className="flex  flex-col border border-white rounded-xl p-5 items-center ">
-        <div className="flex items-center flex-col gap-3">
-          <div className="w-full h-24">
-            <Image
-              className="rounded-xl object-cover w-96 "
-              src={data.banner}
-              alt=""
-              loading="lazy"
-            ></Image>{" "}
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <div className={`text-gray-400`}>به اتمام رسیده</div>
-            <div className="flex flex-col items-center justify-center ">
-              {data.active ? (
-                <Button>
-                  <Link href={`/competitions/pastCompomttions/${data.id}`}>
-                    {data.title}
-                  </Link>
-                </Button>
-              ) : (
-                <Button className="bg-gray-400">{data.title}</Button>
-              )}
-            </div>
+const PastCompomttions = ({data}: any) => {
+  return (
+    <div className="flex  flex-col border border-white rounded-xl p-5 items-center ">
+      <div className="flex items-center flex-col gap-3">
+        <div className="w-full h-24">
+          <Image
+            className="rounded-xl object-cover w-96 "
+            src={data.banner}
+            alt=""
+            loading="lazy"
+          ></Image>{" "}
+        </div>
+        <div className="flex flex-col items-center gap-2">
+          <div className={`text-gray-400`}>به اتمام رسیده</div>
+          <div className="flex flex-col items-center justify-center ">
+            {data.active ? (
+              <Button>
+                <Link href={`/competitions/pastCompomttions/${data.id}`}>
+                  {data.title}
+                </Link>
+              </Button>
+            ) : (
+              <Button className="bg-gray-400">{data.title}</Button>
+            )}
           </div>
         </div>
       </div>
-    );
-  }
-});
+    </div>
+  );
+};
 
-const ActiveCompetitions = React.memo(({data}: any) => {
+const ActiveCompetitions = ({data}: any) => {
   return (
     <div className="flex  flex-col border border-white rounded-xl p-5 items-center ">
       <div className="flex items-center flex-col gap-3">
@@ -139,4 +151,4 @@ const ActiveCompetitions = React.memo(({data}: any) => {
       </div>
     </div>
   );
-});
+};

@@ -3,7 +3,7 @@ import jamRamezan from "@/public/images/competitions/JamRamezan.jpg";
 
 const competitions = [
   {
-    id: "JamEtehadEpee1403",
+    id: "2",
     title: "مسابقات اپه آقایان - جام اتحاد",
     banner: jameEthadCroped,
     active: true,
@@ -16,7 +16,7 @@ const competitions = [
       "https://docs.google.com/forms/d/e/1FAIpQLSfE_KZN5gPB0AKFiAmF9sOajNVI2Xt0xGNE6m1h7yM4ZHAhuQ/viewform?usp=sharing",
   },
   {
-    id: "JamEtehadEpee1403",
+    id: "3",
     title: "مسابقات سابر آقایان - جام رمضان",
     banner: jamRamezan,
     active: true,

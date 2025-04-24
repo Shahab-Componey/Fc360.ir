@@ -2,7 +2,7 @@ import jamRamezanCroped from "@/public/images/competitions/JamRamezanCroped.png"
 
 const competitions = [
   {
-    id: "JamRamezanSabre1403",
+    id: "1",
     title: "مسابقات سابر آقایان - جام رمضان",
     banner: jamRamezanCroped,
     active: false,
