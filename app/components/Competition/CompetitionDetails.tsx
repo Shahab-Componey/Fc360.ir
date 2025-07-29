@@ -7,7 +7,6 @@ import {serverLink} from "@/app/utils/serverLink";
 
 export default function CompetitionDetails({competition}: any) {
   const [form, setForm] = useState(false);
-  console.log(competition);
   return (
     <div className="flex 1 text-center h-full text-white overflow-y-auto ">
       {!form ? (
@@ -82,7 +81,6 @@ export default function CompetitionDetails({competition}: any) {
 }
 
 function Form({docsLink}: any) {
-  console.log(docsLink);
   return (
     <iframe
       className="my-auto mx-auto  bg-[#ffffff] rounded-xl  text-white "

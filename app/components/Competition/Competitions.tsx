@@ -38,7 +38,6 @@ export default function Page({competitions}: any) {
 
   const handleTabChange = useCallback(
     (tabName: string) => {
-      console.log(tabName);
       if (tabName === "PAST") {
         setActiveTab("PAST");
       } else if (tabName === "ACTIVE") {

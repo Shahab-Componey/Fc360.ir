@@ -22,7 +22,6 @@ export default function Page({camps}: any) {
     gsap.fromTo(".main", {opacity: 0}, {opacity: 1, duration: 1});
   });
 
-  console.log(camps);
   const [activeTab, setActiveTab] = useState<string>("");
 
   const CampsList = useMemo(
@@ -39,7 +38,6 @@ export default function Page({camps}: any) {
 
   const handleTabChange = useCallback(
     (tabName: string) => {
-      console.log(tabName);
       if (tabName === "PAST") {
         setActiveTab("PAST");
       } else if (tabName === "ACTIVE") {
