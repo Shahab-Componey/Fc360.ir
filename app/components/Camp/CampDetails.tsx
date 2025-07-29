@@ -4,8 +4,9 @@ import Button from "@/app/components/Button.tsx";
 import Image from "next/image.js";
 import aparatLogo from "@/public/images/competitions/Aparat.png";
 import {serverLink} from "@/app/utils/serverLink";
+import ICamp from "@/app/_models/camp.model";
 
-export default function CampDetails({camp}: any) {
+export default function CampDetails({camp}: {camp: ICamp}) {
   const [form, setForm] = useState(false);
   return (
     <div className="flex 1 text-center h-full text-white overflow-y-auto ">
@@ -24,10 +25,10 @@ export default function CampDetails({camp}: any) {
                 ></Image>
 
                 <div className="flex flex-col text-center gap-5">
-                  <div className="text-4xl ">{camp?.title}</div>
+                  <div className="text-4xl ">{camp.title}</div>
                   <Button
                     className="w-32 h-8   text-xl"
-                    event={() => setForm(true)}
+                    onClick={() => setForm(true)}
                   >
                     {camp.register ? "ثبت نام" : "فرم نظر سنجی"}
                   </Button>
@@ -51,10 +52,10 @@ export default function CampDetails({camp}: any) {
                 <div className="flex mx-auto ">
                   <div className="flex flex-col border rounded-xl p-5 ">
                     <p dir="rtl" className=" text-lg ">
-                      زمان برگزاری : {camp?.time}
+                      زمان برگزاری : {camp.time}
                     </p>
                     <p dir="rtl" className=" text-lg ">
-                      محل برگزاری : {camp?.address}
+                      محل برگزاری : {camp.address}
                     </p>
                     <a
                       href="https://maps.app.goo.gl/oSQSnNEhscKyt6ar7"
@@ -72,9 +73,7 @@ export default function CampDetails({camp}: any) {
           </div>
         </div>
       ) : (
-        <Form
-          docsLink={camp.registerForm ?? camp.surveyForm}
-        ></Form>
+        <Form docsLink={camp.registerForm ?? camp.surveyForm}></Form>
       )}
     </div>
   );

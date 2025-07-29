@@ -29,7 +29,9 @@ function Form() {
       src="https://docs.google.com/forms/d/e/1FAIpQLSevHOO9Ka0keEYA-SexTdGwz62cUJLdCi0dtkrfA-20Dj2rag/viewform?embedded=true"
       width="700"
       height="520"
-    >در حال باز کردن</iframe>
+    >
+      در حال باز کردن
+    </iframe>
   );
 }
 
@@ -50,7 +52,7 @@ function Argument() {
           </span>
           &nbsp; موافقت دارید ؟ &nbsp;
         </p>
-        <Button event={() => setForm(true)}>بله</Button>
+        <Button onClick={() => setForm(true)}>بله</Button>
       </div>
       {modal && <Modal />}
     </div>

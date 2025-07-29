@@ -17,14 +17,11 @@ export async function fetchCamps() {
 
 export async function fetchCampsById(id: number) {
   try {
-    const response = await axios.get(
-      `${API_URL}/api/camps/${id}?populate=*`,
-      {
-        headers: {
-          Authorization: `Bearer ${API_TOKEN}`,
-        },
-      }
-    );
+    const response = await axios.get(`${API_URL}/api/camps/${id}?populate=*`, {
+      headers: {
+        Authorization: `Bearer ${API_TOKEN}`,
+      },
+    });
     return response.data;
   } catch (err) {
     throw err;

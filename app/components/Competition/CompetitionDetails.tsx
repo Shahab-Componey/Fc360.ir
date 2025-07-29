@@ -4,8 +4,13 @@ import Button from "@/app/components/Button.tsx";
 import Image from "next/image.js";
 import aparatLogo from "@/public/images/competitions/Aparat.png";
 import {serverLink} from "@/app/utils/serverLink";
+import ICompetition from "@/app/_models/competition.model";
 
-export default function CompetitionDetails({competition}: any) {
+export default function CompetitionDetails({
+  competition,
+}: {
+  competition: ICompetition;
+}) {
   const [form, setForm] = useState(false);
   return (
     <div className="flex 1 text-center h-full text-white overflow-y-auto ">
@@ -27,7 +32,7 @@ export default function CompetitionDetails({competition}: any) {
                   <div className="text-4xl ">{competition?.title}</div>
                   <Button
                     className="w-32 h-8   text-xl"
-                    event={() => setForm(true)}
+                    onClick={() => setForm(true)}
                   >
                     {competition.register ? "ثبت نام" : "فرم نظر سنجی"}
                   </Button>

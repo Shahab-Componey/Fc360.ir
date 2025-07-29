@@ -12,12 +12,13 @@ import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image.js";
 import {serverLink} from "../../utils/serverLink.ts";
+import ICompetition from "@/app/_models/competition.model.ts";
 
-const registerColers: any = {
+const registerColers: {true: string; false: string} = {
   true: "text-green-400",
   false: "text-red-700",
 };
-export default function Page({competitions}: any) {
+export default function Page({competitions}: {competitions: ICompetition[]}) {
   useGSAP(() => {
     gsap.fromTo(".main", {opacity: 0}, {opacity: 1, duration: 1});
   });
@@ -27,8 +28,10 @@ export default function Page({competitions}: any) {
   const CompetitionList = useMemo(
     () =>
       competitions
-        .filter((v: any) => v.state === activeTab)
-        .map((v: any) => <Competition key={v.id} data={v}></Competition>),
+        .filter((v: ICompetition) => v.state === activeTab)
+        .map((v: ICompetition) => (
+          <Competition key={v.id} data={v}></Competition>
+        )),
     [activeTab, competitions]
   );
 
@@ -73,7 +76,7 @@ export default function Page({competitions}: any) {
   );
 }
 
-const Competition = ({data}: any) => {
+const Competition = ({data}: {data: ICompetition}) => {
   return (
     <div className="flex  flex-col border border-white rounded-xl p-5 items-center ">
       <div className="flex items-center flex-col gap-3">

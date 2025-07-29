@@ -111,6 +111,7 @@ function NavLinks({direction = "", hoverColor = "text-white"}) {
       <NavLink to="/camps">اردو ها</NavLink>
       <NavLink to="/register">ثبت نام در باشگاه</NavLink>
       <NavLink to="/about">درباره با ما</NavLink>
+      <NavLink to="/auth">ورود</NavLink>
     </ul>
   );
 }

@@ -35,7 +35,7 @@ function Main() {
   }, []);
 
   return (
-    <div className=" main bg-Background h-full">
+    <div className="main bg-Background h-full">
       {picCount && (
         <Swiper
           onResize={() => {

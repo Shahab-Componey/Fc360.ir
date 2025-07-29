@@ -16,9 +16,7 @@ export default function RootLayout({
         <div className="flex flex-col section ">
           <NextTopLoader color="#FFFF" />
           <Header />
-          <div className="flex-1 h-full my-10 mx-5 overflow-y-auto">
-            {children}
-          </div>
+          <div className="h-full  my-10 mx-5 overflow-y-auto">{children}</div>
           <Footer />
         </div>
       </body>

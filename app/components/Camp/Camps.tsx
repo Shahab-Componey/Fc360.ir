@@ -1,23 +1,18 @@
 "use client";
-import React, {
-  PropsWithoutRef,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, {useCallback, useEffect, useMemo, useState} from "react";
 import Button from "../Button.tsx";
 import Link from "next/link";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image.js";
 import {serverLink} from "../../utils/serverLink.ts";
+import ICamp from "@/app/_models/camp.model.ts";
 
-const registerColers: any = {
+const registerColers: {true: string; false: string} = {
   true: "text-green-400",
   false: "text-red-700",
 };
-export default function Page({camps}: any) {
+export default function Page({camps}: {camps: ICamp[]}) {
   useGSAP(() => {
     gsap.fromTo(".main", {opacity: 0}, {opacity: 1, duration: 1});
   });
@@ -27,8 +22,8 @@ export default function Page({camps}: any) {
   const CampsList = useMemo(
     () =>
       camps
-        .filter((v: any) => v.state === activeTab)
-        .map((v: any) => <Camps key={v.id} data={v}></Camps>),
+        .filter((v: ICamp) => v.state === activeTab)
+        .map((v: ICamp) => <Camps key={v.id} data={v}></Camps>),
     [activeTab, camps]
   );
 
@@ -73,7 +68,7 @@ export default function Page({camps}: any) {
   );
 }
 
-const Camps = ({data}: any) => {
+const Camps = ({data}: {data: ICamp}) => {
   return (
     <div className="flex  flex-col border border-white rounded-xl p-5 items-center ">
       <div className="flex items-center flex-col gap-3">
