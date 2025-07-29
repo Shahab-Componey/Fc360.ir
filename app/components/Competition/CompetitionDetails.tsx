@@ -1,22 +1,15 @@
 "use client";
-import React, {useState} from "react";
-import competitions from "./activeCompetitions.js";
+import React, {useEffect, useState} from "react";
 import Button from "@/app/components/Button.tsx";
-import {useRouter} from "next/navigation";
 import Image from "next/image.js";
 import aparatLogo from "@/public/images/competitions/Aparat.png";
+import {serverLink} from "@/app/utils/serverLink";
 
-export default function page({params}: {params: any}) {
-  const {competitionsId}: any = React.use(params);
-  const competition = competitions.find((v) => v.id == competitionsId);
-  const router = useRouter();
+export default function CompetitionDetails({competition}: any) {
   const [form, setForm] = useState(false);
-  if (!competition?.active) {
-    router.push("/competitions");
-    return null;
-  }
+  console.log(competition);
   return (
-    <div className="flex 1 text-center h-full text-white   overflow-y-auto overflow-x-hidden ">
+    <div className="flex 1 text-center h-full text-white overflow-y-auto ">
       {!form ? (
         <div className="flex flex-1 flex-col w-full  items-center justify-center px-5  my-auto  md:mx-0 ">
           <div>
@@ -24,8 +17,10 @@ export default function page({params}: {params: any}) {
               <div className="flex mx-auto w-full flex-col gap-5 h-full">
                 <Image
                   className="rounded-3xl mx-auto object-cover h-52 "
-                  src={competition.banner}
+                  src={serverLink(competition.banner)}
                   alt=""
+                  width={200}
+                  height={200}
                   loading="lazy"
                 ></Image>
 
@@ -35,7 +30,7 @@ export default function page({params}: {params: any}) {
                     className="w-32 h-8   text-xl"
                     event={() => setForm(true)}
                   >
-                    ثبت نام
+                    {competition.register ? "ثبت نام" : "فرم نظر سنجی"}
                   </Button>
                   <div className="mx-auto">
                     <a href={competition.teaser} target="blank" className="">
@@ -60,7 +55,7 @@ export default function page({params}: {params: any}) {
                       زمان برگزاری : {competition?.time}
                     </p>
                     <p dir="rtl" className=" text-lg ">
-                      محل برگزاری : {competition?.location}
+                      محل برگزاری : {competition?.address}
                     </p>
                     <a
                       href="https://maps.app.goo.gl/oSQSnNEhscKyt6ar7"
@@ -78,13 +73,16 @@ export default function page({params}: {params: any}) {
           </div>
         </div>
       ) : (
-        <Form docsLink={competition?.docsLink}></Form>
+        <Form
+          docsLink={competition.registerForm ?? competition.surveyForm}
+        ></Form>
       )}
     </div>
   );
 }
 
 function Form({docsLink}: any) {
+  console.log(docsLink);
   return (
     <iframe
       className="my-auto mx-auto  bg-[#ffffff] rounded-xl  text-white "

@@ -13,7 +13,6 @@ import image1 from "../public/images/main/1.jpg";
 import image2 from "../public/images/main/2.jpg";
 import image3 from "../public/images/main/3.jpg";
 import image4 from "../public/images/main/4.jpg";
-
 function reSize(func: any) {
   window.matchMedia("(max-width: 1280px)").matches ? func(2) : func(3);
   window.matchMedia("(max-width: 550px)").matches && func(1);

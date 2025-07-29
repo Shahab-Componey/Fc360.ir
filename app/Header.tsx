@@ -108,6 +108,7 @@ function NavLinks({direction = "", hoverColor = "text-white"}) {
     >
       <NavLink to="/">خانه</NavLink>
       <NavLink to="/competitions">مسابقات</NavLink>
+      <NavLink to="/camps">اردو ها</NavLink>
       <NavLink to="/register">ثبت نام در باشگاه</NavLink>
       <NavLink to="/about">درباره با ما</NavLink>
     </ul>
